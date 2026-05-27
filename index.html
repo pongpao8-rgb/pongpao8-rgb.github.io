@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>โรงพยาบาลสัตว์เชียงใหม่โชตนา | Chotana Veterinary Hospital</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Arial, sans-serif; color: #333; background: #fff; }
+.en, .zh { display: none; }
+.th { display: inline; }
+body.lang-en .th { display: none; }
+body.lang-en .en { display: inline; }
+body.lang-en .zh { display: none; }
+body.lang-zh .th { display: none; }
+body.lang-zh .en { display: none; }
+body.lang-zh .zh { display: inline; }
+.lang-bar { background: #1A3A5C; text-align:right; padding:8px 20px; }
+.lang-btns button { padding:6px 14px; border:2px solid #fff; background:transparent; color:#fff; border-radius:20px; cursor:pointer; font-size:13px; font-weight:600; margin-left:5px; }
+.lang-btns button.active { background:#fff; color:#1A3A5C; }
+.header { background:#fff; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 2px 10px rgba(0,0,0,0.1); position:sticky; top:0; z-index:100; flex-wrap:wrap; gap:10px; }
+.logo img { height:55px; }
+.nav { display:flex; gap:15px; align-items:center; flex-wrap:wrap; }
+.nav a { text-decoration:none; color:#333; font-weight:500; font-size:0.9rem; }
+.nav a:hover { color:#2B5B9E; }
+.btn-book { background:#C8102E; color:#fff !important; padding:8px 16px; border-radius:5px; }
+.hero { background:linear-gradient(135deg,#2B5B9E,#1A3A5C); color:#fff; padding:80px 20px; text-align:center; }
+.hero h1 { font-size:2.2rem; margin-bottom:15px; line-height:1.3; }
+.hero h2 { font-size:1.4rem; margin-bottom:15px; opacity:0.9; }
+.hero p.desc { font-size:1.1rem; margin-bottom:30px; opacity:0.85; }
+.hero-btns { display:flex; gap:15px; justify-content:center; flex-wrap:wrap; }
+.btn-p { background:#fff; color:#2B5B9E; padding:14px 30px; border-radius:5px; text-decoration:none; font-weight:700; display:inline-block; }
+.btn-e { background:#C8102E; color:#fff; padding:14px 30px; border-radius:5px; text-decoration:none; font-weight:700; display:inline-block; }
+.stats { background:#f5f5f5; padding:50px 20px; }
+.stats-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; max-width:1000px; margin:0 auto; }
+.stat { background:#fff; padding:25px; text-align:center; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
+.stat-num { font-size:2.5rem; font-weight:700; color:#2B5B9E; }
+.stat-label { color:#666; margin-top:5px; }
+.services { padding:60px 20px; background:#fff; }
+.section-title { text-align:center; font-size:2rem; color:#1A3A5C; margin-bottom:40px; font-weight:700; }
+.services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:25px; max-width:1100px; margin:0 auto; }
+.sc { border:2px solid #eee; border-radius:10px; padding:30px; }
+.sc:hover { border-color:#2B5B9E; box-shadow:0 5px 20px rgba(43,91,158,0.15); }
+.sc.sp { border:3px solid #C8102E; background:#fff5f5; }
+.si { font-size:2.5rem; margin-bottom:15px; }
+.sc h3 { color:#1A3A5C; margin-bottom:10px; font-size:1.2rem; }
+.badge { background:#C8102E; color:#fff; padding:6px 12px; border-radius:20px; font-size:0.85rem; font-weight:600; display:inline-block; margin-bottom:10px; }
+.sc ul { list-style:none; }
+.sc ul li { padding:5px 0 5px 20px; position:relative; color:#666; font-size:0.95rem; }
+.sc ul li:before { content:"checkmark"; position:absolute; left:0; color:#2B5B9E; font-weight:bold; }
+.about { background:#E8F1F8; padding:60px 20px; text-align:center; }
+.about p { max-width:800px; margin:0 auto 25px; font-size:1.05rem; line-height:1.8; color:#444; }
+.btn-s { background:#2B5B9E; color:#fff; padding:12px 25px; border-radius:5px; text-decoration:none; font-weight:600; display:inline-block; }
+.testimonials { background:#f5f5f5; padding:60px 20px; }
+.tgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:25px; max-width:1100px; margin:30px auto 0; }
+.tc { background:#fff; padding:25px; border-radius:10px; border-left:5px solid #2B5B9E; box-shadow:0 2px 10px rgba(0,0,0,0.05); }
+.tc h4 { color:#1A3A5C; margin-bottom:12px; }
+.tc p { font-style:italic; color:#555; line-height:1.7; margin-bottom:10px; }
+.ta { color:#2B5B9E; font-weight:600; text-align:right; font-size:0.9rem; }
+.contact-sec { background:linear-gradient(135deg,#1A3A5C,#2B5B9E); color:#fff; padding:60px 20px; }
+.contact-sec .section-title { color:#fff; }
+.cgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:30px; max-width:900px; margin:0 auto 30px; }
+.ci h3 { color:#C8E1F5; margin-bottom:10px; font-size:1.1rem; }
+.ci p { margin-bottom:6px; font-size:0.95rem; }
+.ci a { color:#fff; }
+.footer { background:#333; color:#ccc; padding:40px 20px 20px; }
+.fgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:30px; max-width:1100px; margin:0 auto 30px; }
+.footer h3 { color:#C8E1F5; margin-bottom:15px; }
+.footer ul { list-style:none; }
+.footer ul li { margin-bottom:8px; }
+.footer ul li a { color:#ccc; text-decoration:none; }
+.slinks { display:flex; flex-direction:column; gap:8px; }
+.slinks a { color:#ccc; text-decoration:none; }
+.fb { border-top:1px solid #555; padding-top:20px; text-align:center; color:#999; max-width:1100px; margin:0 auto; }
+.center { text-align:center; margin-top:30px; }
+@media(max-width:768px){.hero h1{font-size:1.6rem;}.hero h2{font-size:1.1rem;}.header{flex-direction:column;}}
+</style>
+</head>
+<body class="lang-th">
+<div class="lang-bar">
+  <div class="lang-btns">
+    <button onclick="setLang('th')" id="btn-th" class="active">TH</button>
+    <button onclick="setLang('en')" id="btn-en">EN</button>
+    <button onclick="setLang('zh')" id="btn-zh">&#20013;&#25991;</button>
+  </div>
+</div>
+<div class="header">
+  <div class="logo"><a href="index.html"><img src="images/logo.png" alt="Chotana Vet"></a></div>
+  <nav class="nav">
+    <a href="index.html"><span class="th">&#3627;&#3609;&#3657;&#3634;&#3649;&#3619;&#3585;</span><span class="en">Home</span><span class="zh">&#39318;&#39029;</span></a>
+    <a href="services.html"><span class="th">&#3610;&#3619;&#3636;&#3585;&#3634;&#3619;</span><span class="en">Services</span><span class="zh">&#26381;&#21153;</span></a>
+    <a href="about.html"><span class="th">&#3648;&#3585;&#3637;&#3656;&#3618;&#3623;&#3585;&#3633;&#3610;&#3648;&#3619;&#3634;</span><span class="en">About</span><span class="zh">&#20851;&#20110;</span></a>
+    <a href="testimonials.html"><span class="th">&#3619;&#3637;&#3623;&#3636;&#3623;</span><span class="en">Reviews</span><span class="zh">&#35780;&#20215;</span></a>
+    <a href="contact.html"><span class="th">&#3605;&#3636;&#3604;&#3605;&#3656;&#3629;</span><span class="en">Contact</span><span class="zh">&#32852;&#31995;</span></a>
+    <a href="contact.html" class="btn-book"><span class="th">&#3609;&#3633;&#3604;&#3627;&#3617;&#3634;&#3618;</span><span class="en">Book Now</span><span class="zh">&#39044;&#32422;</span></a>
+  </nav>
+</div>
+<section class="hero">
+  <h1><span class="th">&#3610;&#3619;&#3636;&#3585;&#3634;&#3619;&#3619;&#3633;&#3585;&#3625;&#3634;&#3626;&#3633;&#3605;&#3623;&#3660;&#3629;&#3618;&#3656;&#3634;&#3591;&#3617;&#3639;&#3629;&#3629;&#3634;&#3594;&#3637;&#3614;&#3617;&#3634;&#3585;&#3623;&#3656;&#3634; 30 &#3611;&#3637;</span><span class="en">Professional Veterinary Care for Over 30 Years</span><span class="zh">30&#22810;&#24180;&#19987;&#19994;&#20083;&#21307;&#25252;&#29702;&#26381;&#21153;</span></h1>
+  <h2><span class="th">&#3624;&#3633;&#3621;&#3618;&#3585;&#3619;&#3619;&#3617;&#3585;&#3619;&#3632;&#3604;&#3641;&#3629;&#3629;&#3619;&#3660;&#3650;&#3608;&#3611;&#3636;&#3604;&#3637;&#3585;&#3626;&#3660;&#3649;&#3621;&#3632;&#3607;&#3633;&#3609;&#3605;&#3585;&#3619;&#3619;&#3617;&#3586;&#3633;&#3657;&#3609;&#3626;&#3641;&#3591;</span><span class="en">Advanced Orthopedic &amp; Dental Surgery</span><span class="zh">&#39640;&#32423;&#39282;&#31185;&#21644;&#29260;&#31185;&#25163;&#26415;</span></h2>
+  <p class="desc"><span class="th">&#3604;&#3641;&#3649;&#3621;&#3619;&#3633;&#3585;&#3625;&#3634;&#3626;&#3640;&#3586;&#3616;&#3634;&#3614;&#3626;&#3633;&#3605;&#3623;&#3660;&#3648;&#3621;&#3637;&#3657;&#3618;&#3591;&#3649;&#3610;&#3610;&#3629;&#3591;&#3588;&#3660;&#3619;&#3623;&#3617;&#3604;&#3657;&#3623;&#3618;&#3588;&#3623;&#3634;&#3617;&#3648;&#3586;&#3657;&#3634;&#3629;&#3585;&#3648;&#3586;&#3657;&#3634;&#3651;&#3592;</span><span class="en">Compassionate, Holistic Approach to Your Pet's Health</span><span class="zh">&#20197;&#23500;&#26377;&#21516;&#24773;&#24515;&#30340;&#25972;&#20307;&#26041;&#27861;&#21803;&#25252;&#60;&#24744;&#23601;&#30340;&#23439;&#29289;&#20581;&#24247;</span></p>
+  <div class="hero-btns">
+    <a href="contact.html" class="btn-p"><span class="th">&#128197; &#3609;&#3633;&#3604;&#3627;&#3617;&#3634;&#3618;</span><span class="en">&#128197; Book Appointment</span><span class="zh">&#128197; &#39044;&#32422;</span></a>
+    <a href="tel:053215333" class="btn-e"><span class="th">&#9742;&#65039; &#3615;&#3588;&#3640;&#3648;&#3615;&#3636;&#3609;: 053-215333</span><span class="en">&#9742;&#65039; Emergency: 053-215333</span><span class="zh">&#9742;&#65039; &#32025;&#24613;: 053-215333</span></a>
+  </div>
+</section>
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat"><div class="stat-num">30+</div><div class="stat-label"><span class="th">&#3611;&#3637;&#3611;&#3619;&#3632;&#3626;&#3610;&#3585;&#3634;&#3619;&#3603;</span><span class="en">Years Experience</span><span class="zh">&#24180;&#32463;&#39564;</span></div></div>
+    <div class="stat"><div class="stat-num">&#10003;</div><div class="stat-label"><span class="th">&#3605;&#3637; TPLO &#3586;&#3633;&#3657;&#3609;&#3626;&#3641;&#3591;</span><span class="en">TPLO Specialist</span><span class="zh">TPLO&#19987;&#23478;</span></div></div>
+    <div class="stat"><div class="stat-num">&#128312;</div><div class="stat-label"><span class="th">&#3615;&#3633;&#3591;&#3648;&#3586;&#3655;&#3617;&#3626;&#3633;&#3605;&#3623;&#3660;&#3648;&#3621;&#3637;&#3657;&#3618;&#3591;</span><span class="en">Vet Acupuncture</span><span class="zh">&#20861;&#21307;&#37341;&#28789;</span></div></div>
+    <div class="stat"><div class="stat-num">&#127757;</div><div class="stat-label"><span class="th">&#3614;&#3641;&#3604;&#3629;&#3633;&#3591;&#3585;&#3615;&#3625;&#3588;&#3621;&#3656;&#3629;&#3591;</span><span class="en">Fluent English</span><span class="zh">&#27969;&#21033;&#33521;&#35821;</span></div></div>
+  </div>
+</section>
+<section class="services">
+  <h2 class="section-title"><span class="th">&#3610;&#3619;&#3636;&#3585;&#3634;&#3619;&#3586;&#3629;&#3591;&#3648;&#3619;&#3634;</span><span class="en">Our Services</span><span class="zh">&#25105;&#20204;&#30340;&#26381;&#21153;</span></h2>
+  <div class="services-grid">
+    <div class="sc"><div class="si">&#129458;</div><h3><span class="th">&#3624;&#3633;&#3621;&#3618;&#3585;&#3619;&#3619;&#3617;&#3585;&#3619;&#3632;&#3604;&#3641;&#3585;</span><span class="en">Orthopedic Surgery</span><span class="zh">&#39282;&#31185;&#25163;&#26415;</span></h3><ul><li><span class="th">TPLO &#3649;&#3585;&#3657;&#3648;&#3629;&#3655;&#3609;&#3652;&#3586;&#3623;&#3657;</span><span class="en">TPLO Surgery</span><span class="zh">TPLO&#25163;&#26415;</span></li><li><span class="th">&#3626;&#3632;&#3610;&#3657;&#3634;&#3627;&#3633;&#3623;&#3648;&#3586;&#3656;&#3634;</span><span class="en">Luxating Patella</span><span class="zh">&#31363;&#39592;&#33073;&#20301;&#25163;&#26415;</span></li><li><span class="th">&#3619;&#3633;&#3585;&#3625;&#3634;&#3585;&#3619;&#3632;&#3604;&#3641;&#3585;&#3627;&#3633;&#3585;</span><span class="en">Fracture Repair</span><span class="zh">&#39592;&#25240;&#20462;&#22797;</span></li><li><span class="th">&#3612;&#3656;&#3634;&#3605;&#3633;&#3604;&#3586;&#3657;&#3629;&#3626;&#3632;&#3650;&#3614;&#3585; FHO</span><span class="en">FHO Surgery</span><span class="zh">&#32218;&#39282;&#22836;&#20999;&#38500;&#26415;</span></li></ul></div>
+    <div class="sc"><div class="si">&#129463;</div><h3><span class="th">&#3607;&#3633;&#3609;&#3605;&#3585;&#3619;&#3619;&#3617;&#3586;&#3633;&#3657;&#3609;&#3626;&#3641;&#3591;</span><span class="en">Professional Dental Care</span><span class="zh">&#19987;&#19994;&#29260;&#31185;&#25252;&#29702;</span></h3><ul><li><span class="th">COHAT &#3605;&#3619;&#3623;&#3592;&#3594;&#3656;&#3629;&#3591;&#3611;&#3634;&#3585;&#3588;&#3619;&#3610;&#3623;&#3591;&#3592;&#3619;</span><span class="en">COHAT Protocol</span><span class="zh">COHAT&#20840;&#38754;&#35780;&#20272;</span></li><li><span class="th">&#3648;&#3629;&#3655;&#3585;&#3595;&#3648;&#3619;&#3618;&#3660;&#3615;&#3633;&#3609;</span><span class="en">Dental X-Ray</span><span class="zh">&#29260;&#31185;X&#20809;</span></li><li><span class="th">&#3586;&#3641;&#3604;&#3627;&#3636;&#3609;&#3611;&#3641;&#3609;</span><span class="en">Professional Cleaning</span><span class="zh">&#19987;&#19994;&#27927;&#29260;</span></li><li><span class="th">&#3606;&#3629;&#3609;&#3615;&#3633;&#3609;</span><span class="en">Teeth Extraction</span><span class="zh">&#25320;&#29260;</span></li></ul></div>
+    <div class="sc sp"><div class="si">&#128312;</div><h3><span class="th">&#3615;&#3633;&#3591;&#3648;&#3586;&#3655;&#3617;&#3626;&#3633;&#3605;&#3623;&#3660;&#3648;&#3621;&#3637;&#3657;&#3618;&#3591;</span><span class="en">Veterinary Acupuncture</span><span class="zh">&#20861;&#21307;&#37341;&#28789;</span></h3><div class="badge"><span class="th">&#9733; &#3648;&#3614;&#3637;&#3618;&#3591;&#3649;&#3627;&#3656;&#3591;&#3648;&#3604;&#3637;&#3618;&#3623;&#3651;&#3609;&#3648;&#3594;&#3637;&#3618;&#3591;&#3651;&#3627;&#3617;&#3656;!</span><span class="en">&#9733; Unique in Chiang Mai!</span><span class="zh">&#9733; &#28165;&#36855;&#29420;&#26377;!</span></div><ul><li><span class="th">&#3610;&#3619;&#3619;&#3648;&#3607;&#3634;&#3629;&#3634;&#3585;&#3634;&#3619;&#3611;&#3623;&#3604;</span><span class="en">Pain Management</span><span class="zh">&#30151;&#30151;&#31649;&#29702;</span></li><li><span class="th">&#3650;&#3619;&#3588;&#3648;&#3619;&#3639;&#3657;&#3629;&#3619;&#3633;&#3591;</span><span class="en">Chronic Conditions</span><span class="zh">&#24341;&#24615;&#30149;&#27982;&#30103;</span></li><li><span class="th">&#3615;&#3639;&#3657;&#3609;&#3615;&#3641;&#3627;&#3621;&#3633;&#3591;&#3612;&#3656;&#3634;&#3605;&#3633;&#3604;</span><span class="en">Post-Surgical Recovery</span><span class="zh">&#26415;&#21518;&#24674;&#22797;</span></li></ul></div>
+    <div class="sc"><div class="si">&#9992;&#65039;</div><h3><span class="th">&#3610;&#3619;&#3636;&#3585;&#3634;&#3619;&#3618;&#3657;&#3634;&#3618;&#3626;&#3633;&#3605;&#3623;&#3660;&#3648;&#3621;&#3637;&#3657;&#3618;&#3591;&#3605;&#3656;&#3634;&#3591;&#3611;&#3619;&#3632;&#3648;&#3607;&#3624;</span><span class="en">International Pet Relocation</span><span class="zh">&#22269;&#38469;&#23439;&#29289;&#25333;&#36801;</span></h3><ul><li><span class="th">&#3615;&#3633;&#3591;&#3652;&#3617;&#3650;&#3588;&#3619;&#3594;&#3636;&#3611; ISO</span><span class="en">ISO Microchip (11784/11785)</span><span class="zh">ISO&#24494;&#33539;&#29255;&#26893;&#20837;</span></li><li><span class="th">&#3605;&#3619;&#3623;&#3592;&#3616;&#3641;&#3617;&#3636;&#3588;&#3640;&#3657;&#3617;&#3585;&#3633;&#3609; (&#3627;&#3657;&#3629;&#3591;&#3611;&#3598;&#3636;&#3610;&#3633;&#3605;&#3636;&#3585;&#3634;&#3619;&#3619;&#3633;&#3600;&#3610;&#3634;&#3621;)</span><span class="en">Rabies Titer Test (Gov't Lab)</span><span class="zh">&#29399;&#29399;&#30149;&#25454;&#20307;&#26816;&#27979;</span></li><li><span class="th">&#3648;&#3629;&#3585;&#3626;&#3634;&#3619;&#3648;&#3604;&#3636;&#3609;&#3607;&#3634;&#3591;</span><span class="en">Travel Documentation</span><span class="zh">&#26053;&#34892;&#25991;&#20214;</span></li></ul></div>
+  </div>
+  <div class="center"><a href="services.html" class="btn-s"><span class="th">&#3604;&#3641;&#3610;&#3619;&#3636;&#3585;&#3634;&#3619;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604; &#8594;</span><span class="en">View All Services &#8594;</span><span class="zh">&#26597;&#30475;&#25152;&#26377;&#26381;&#21153; &#8594;</span></a></div>
+</section>
+<section class="about">
+  <h2 class="section-title"><span class="th">&#3648;&#3585;&#3637;&#3656;&#3618;&#3623;&#3585;&#3633;&#3610;&#3648;&#3619;&#3634;</span><span class="en">About Our Practice</span><span class="zh">&#20851;&#20110;&#25105;&#20204;</span></h2>
+  <p><span class="th">&#3650;&#3619;&#3591;&#3614;&#3618;&#3634;&#3610;&#3634;&#3621;&#3626;&#3633;&#3605;&#3623;&#3660;&#3648;&#3594;&#3637;&#3618;&#3591;&#3651;&#3627;&#3617;&#3656;&#3650;&#3594;&#3605;&#3609;&#3634;&#3651;&#3627;&#3657;&#3610;&#3619;&#3636;&#3585;&#3634;&#3619;&#3604;&#3641;&#3649;&#3621;&#3619;&#3633;&#3585;&#3625;&#3634;&#3626;&#3633;&#3605;&#3623;&#3660;&#3648;&#3621;&#3637;&#3657;&#3618;&#3591;&#3605;&#3656;&#3629;&#3648;&#3609;&#3639;&#3656;&#3629;&#3591;&#3617;&#3634;&#3618;&#3634;&#3623;&#3609;&#3634;&#3609;&#3585;&#3623;&#3656;&#3634; 30 &#3611;&#3637; &#3604;&#3657;&#3623;&#3618;&#3629;&#3640;&#3611;&#3585;&#3619;&#3603;&#3660;&#3607;&#3637;&#3656;&#3607;&#3633;&#3609;&#3626;&#3617;&#3633;&#3618;&#3649;&#3621;&#3632;&#3648;&#3607;&#3588;&#3609;&#3636;&#3588;&#3607;&#3637;&#3656;&#3621;&#3657;&#3635;&#3627;&#3609;&#3657;&#3634;</span><span class="en">Chiang Mai Chotana Veterinary Hospital has been serving Chiang Mai's pets and their families for over 30 years. Our experienced veterinarian provides compassionate, professional care using modern facilities and updated techniques. Holistic approach is our priority.</span><span class="zh">&#28165;&#36855;Chotana&#20083;&#21307;&#38498;30&#22810;&#24180;&#26469;&#19968;&#30452;&#20026;&#28165;&#36855;&#30340;&#23439;&#29289;&#21450;&#20854;&#23478;&#24237;&#25552;&#20379;&#26381;&#21153;&#12290;&#25972;&#20307;&#26041;&#27861;&#26159;&#25105;&#20204;&#30340;&#20248;&#20808;&#20107;&#39033;&#12290;</span></p>
+  <a href="about.html" class="btn-s"><span class="th">&#3648;&#3619;&#3637;&#3618;&#3609;&#3619;&#3641;&#3657;&#3648;&#3614;&#3636;&#3656;&#3617;&#3648;&#3605;&#3636;&#3617; &#8594;</span><span class="en">Learn More &#8594;</span><span class="zh">&#20102;&#35299;&#26356;&#22810; &#8594;</span></a>
+</section>
+<section class="testimonials">
+  <h2 class="section-title"><span class="th">&#11088;&#11088;&#11088;&#11088;&#11088; &#3588;&#3623;&#3634;&#3617;&#3588;&#3636;&#3604;&#3648;&#3627;&#3655;&#3609;&#3592;&#3634;&#3585;&#3621;&#3641;&#3585;&#3588;&#3657;&#3634;</span><span class="en">&#11088;&#11088;&#11088;&#11088;&#11088; What Our Clients Say</span><span class="zh">&#11088;&#11088;&#11088;&#11088;&#11088; &#23458;&#25143;&#35780;&#20215;</span></h2>
+  <div class="tgrid">
+    <div class="tc"><h4>&#129458; <span class="th">&#3612;&#3656;&#3634;&#3605;&#3633;&#3604;&#3585;&#3619;&#3632;&#3604;&#3641;&#3585;&#3595;&#3633;&#3610;&#3595;&#3657;&#3629;&#3609;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;</span><span class="en">Complex Orthopedic Success</span><span class="zh">&#39282;&#31185;&#25163;&#26415;&#25104;&#21151;</span></h4><p><span class="th">&#34;&#3627;&#3617;&#3634;&#3586;&#3629;&#3591;&#3648;&#3619;&#3634;&#3606;&#3641;&#3585;&#3617;&#3629;&#3648;&#3605;&#3629;&#3619;&#3660;&#3652;&#3595;&#3610;&#3660;&#3594;&#3609;&#3592;&#3609;&#3585;&#3619;&#3632;&#3604;&#3641;&#3585;&#3648;&#3588;&#3621;&#3639;&#3656;&#3629;&#3609;&#3617;&#3634;&#3585; &#3627;&#3621;&#3634;&#3618;&#3650;&#3619;&#3591;&#3614;&#3618;&#3634;&#3610;&#3634;&#3621;&#3610;&#3629;&#3585;&#3623;&#3656;&#3634;&#3605;&#3657;&#3629;&#3591;&#3605;&#3633;&#3604;&#3585;&#3619;&#3632;&#3604;&#3641;&#3585;&#3626;&#3656;&#3623;&#3609;&#3607;&#3637;&#3656;&#3648;&#3626;&#3637;&#3618;&#3629;&#3629;&#3585; &#3648;&#3619;&#3634;&#3652;&#3617;&#3656;&#3618;&#3629;&#3617;&#3649;&#3614;&#3657; &#3592;&#3609;&#3617;&#3634;&#3648;&#3592;&#3629;&#3650;&#3619;&#3591;&#3614;&#3618;&#3634;&#3610;&#3634;&#3621;&#3626;&#3633;&#3605;&#3623;&#3660;&#3650;&#3594;&#3605;&#3609;&#3634;! &#3627;&#3617;&#3629;&#3612;&#3656;&#3634;&#3605;&#3633;&#3604;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592; &#3649;&#3588;&#3656;&#3648;&#3604;&#3639;&#3629;&#3609;&#3648;&#3604;&#3637;&#3618;&#3623;&#3627;&#3617;&#3634;&#3648;&#3604;&#3636;&#3609;&#3652;&#3604;&#3657;&#3611;&#3585;&#3605;&#3636;!&#34;</span><span class="en">"My dog was hit by a motorcycle. Multiple vets said amputation was the only option. Dr. Pongpao repositioned the bone - no amputation! One month later, my dog was walking normally!"</span><span class="zh">&#34;&#25105;&#30340;&#29399;&#34987;&#25296;&#36710;&#25439;&#21040;&#12290;&#22810;&#23478;&#21307;&#38498;&#35828;&#21482;&#33021;&#25130;&#32989;&#12290;&#24425;&#25499;&#21307;&#29983;&#25226;&#39282;&#22836;&#25320;&#22238;&#21407;&#20301;&#65292;&#19968;&#20010;&#26376;&#21518;&#25105;&#30340;&#29399;&#23601;&#33021;&#27491;&#24120;&#34892;&#36742;&#20102;&#65281;&#34;</span></p><div class="ta">&#8212; Mali Z, Google Review &#11088;&#11088;&#11088;&#11088;&#11088;</div></div>
+    <div class="tc"><h4>&#128312; <span class="th">&#3619;&#3633;&#3585;&#3625;&#3634;&#3604;&#3657;&#3623;&#3618;&#3615;&#3633;&#3591;&#3648;&#3586;&#3655;&#3617;&#3626;&#3635;&#3648;&#3619;&#3655;&#3592;</span><span class="en">Acupuncture Success</span><span class="zh">&#37341;&#28789;&#27861;&#30830;&#26377;&#25928;</span></h4><p><span class="th">&#34;&#3627;&#3617;&#3634;&#3605;&#3633;&#3623;&#3648;&#3604;&#3636;&#3617;&#3615;&#3637;&#3656;&#3619;&#3604;&#3627;&#3621;&#3633;&#3591;&#3607;&#3635;&#3627;&#3617;&#3633;&#3609; &#3584;&#3636;&#3604;&#3623;&#3656;&#3634;&#3627;&#3634;&#3618;&#3652;&#3617;&#3656;&#3652;&#3604;&#3657; &#3649;&#3605;&#3656;&#3627;&#3617;&#3629;&#3612;&#3656;&#3629;&#3591;&#3648;&#3616;&#3634;&#3648;&#3585;&#3656;&#3591;&#3648;&#3619;&#3639;&#3656;&#3629;&#3591;&#3615;&#3633;&#3591;&#3648;&#3586;&#3655;&#3617; &#3629;&#3634;&#3592;&#3648;&#3611;&#3655;&#3609;&#3626;&#3633;&#3605;&#3623;&#3649;&#3614;&#3607;&#3618;&#3660;&#3588;&#3609;&#3648;&#3604;&#3637;&#3618;&#3623;&#3651;&#3609;&#3648;&#3594;&#3637;&#3618;&#3591;&#3651;&#3627;&#3617;&#3656;&#3607;&#3637;&#3656;&#3607;&#3635;&#3615;&#3633;&#3591;&#3648;&#3586;&#3655;&#3617;&#3651;&#3627;&#3657;&#3626;&#3633;&#3605;&#3623;&#3660;&#3652;&#3604;&#3657;! &#3619;&#3633;&#3585;&#3625;&#3634; 2-3 &#3648;&#3604;&#3639;&#3629;&#3609; &#3627;&#3617;&#3634;&#3604;&#3637;&#3586;&#3638;&#3657;&#3609;&#3648;&#3618;&#3629;&#3632;&#3648;&#3621;&#3618;!&#34;</span><span class="en">"My dog had urinary incontinence. Dr. Pongpao treated it with acupuncture - possibly the only vet in Chiang Mai with this skill! After 2-3 months, significant improvement!"</span><span class="zh">&#34;&#25105;&#30340;&#29399;&#32506;&#32946;&#21518;&#28388;&#23637;&#12290;&#24425;&#25499;&#21307;&#29983;&#31934;&#36890;&#37341;&#28789;&#8212;&#20851;&#21487;&#33021;&#26159;&#28165;&#36855;&#21807;&#19968;&#33021;&#20026;&#21160;&#29289;&#36827;&#34892;&#37341;&#28789;&#30340;&#20083;&#21307;&#65281;&#32463;&#36807;2-3&#20010;&#26376;&#27801;&#30103;&#65292;&#25105;&#30340;&#29399;&#26126;&#26174;&#22909;&#36716;&#65281;&#34;</span></p><div class="ta">&#8212; Mali Z, Google Review &#11088;&#11088;&#11088;&#11088;&#11088;</div></div>
+    <div class="tc"><h4>&#128170; <span class="th">&#3623;&#3636;&#3609;&#3636;&#3592;&#3615;&#3633;&#3618;&#3652;&#3604;&#3657;&#3648;&#3617;&#3639;&#3656;&#3629;&#3588;&#3609;&#3629;&#3639;&#3656;&#3609;&#3607;&#3635;&#3652;&#3617;&#3656;&#3652;&#3604;&#3657;</span><span class="en">Quick Diagnosis When Others Failed</span><span class="zh">&#24403;&#20854;&#20182;&#20154;&#22833;&#36133;&#26102;&#24555;&#36895;&#35822;&#26029;</span></h4><p><span class="th">&#34;&#3626;&#3633;&#3605;&#3623;&#3660;&#3648;&#3621;&#3637;&#3657;&#3618;&#3591;&#3586;&#3629;&#3591;&#3648;&#3619;&#3634;&#3611;&#3656;&#3623;&#3618;&#3627;&#3609;&#3633;&#3585; &#3652;&#3611;&#3627;&#3634;&#3626;&#3633;&#3605;&#3623;&#3649;&#3614;&#3607;&#3618;&#3660;&#3626;&#3629;&#3591;&#3588;&#3609;&#3649;&#3621;&#3657;&#3623;&#3652;&#3617;&#3656;&#3627;&#3634;&#3618; &#3592;&#3609;&#3627;&#3617;&#3629;&#3612;&#3656;&#3629;&#3591;&#3648;&#3616;&#3634;&#3623;&#3636;&#3609;&#3636;&#3592;&#3615;&#3633;&#3618;&#3652;&#3604;&#3657;&#3629;&#3618;&#3656;&#3634;&#3591;&#3619;&#3623;&#3604;&#3648;&#3619;&#3655;&#3623;&#3649;&#3621;&#3632;&#3627;&#3634;&#3618;&#3634;&#3607;&#3637;&#3656;&#3627;&#3634;&#3618;&#3634;&#3585;!&#34;</span><span class="en">"Our pet was seriously ill. Two vets couldn't help. Dr. Pongpao quickly diagnosed and found hard-to-find medicine. Same-day service!"</span><span class="zh">&#34;&#25105;&#20204;&#30340;&#23439;&#29289;&#30149;&#24471;&#24456;&#37325;&#12290;&#20004;&#20010;&#20083;&#21307;&#37117;&#26080;&#27861;&#24110;&#24489;&#12290;&#24425;&#25499;&#21307;&#29983;&#36895;&#36895;&#35242;&#26029;&#24182;&#25หาay&#21040;&#38590;&#20197;&#25214;&#21040;&#30340;&#34507;&#29289;&#12290;&#24403;&#22825;&#26381;&#21153;&#65281;&#34;</span></p><div class="ta">&#8212; William &#34;&#3610;&#3640;&#3597;&#34; Sparks, Google Review &#11088;&#11088;&#11088;&#11088;&#11088;</div></div>
+  </div>
+  <div class="center"><a href="testimonials.html" class="btn-s"><span class="th">&#3629;&#3656;&#3634;&#3609;&#3619;&#3637;&#3623;&#3636;&#3623;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604; &#8594;</span><span class="en">Read All Reviews &#8594;</span><span class="zh">&#38405;&#35835;&#25152;&#26377;&#35780;&#20215; &#8594;</span></a></div>
+</section>
+<section class="contact-sec">
+  <h2 class="section-title"><span class="th">&#3605;&#3636;&#3604;&#3605;&#3656;&#3629;&#3648;&#3619;&#3634;</span><span class="en">Contact Us</span><span class="zh">&#32852;&#31995;&#25105;&#20204;</span></h2>
+  <div class="cgrid">
+    <div class="ci"><h3>&#128222; <span class="th">&#3650;&#3607;&#3619;&#3624;&#3633;&#3614;&#3607;&#3660;</span><span class="en">Phone</span><span class="zh">&#30005;&#35805;</span></h3><p><a href="tel:053215333">053-215333</a></p><p><a href="tel:0819506139">081-950-6139</a></p></div>
+    <div class="ci"><h3>&#128336; <span class="th">&#3648;&#3623;&#3621;&#3634;&#3607;&#3635;&#3585;&#3634;&#3619;</span><span class="en">Hours</span><span class="zh">&#32463;&#31425;&#26102;&#38388;</span></h3><p><span class="th">&#3592;&#3633;&#3609;&#3607;&#3619;&#3660;-&#3648;&#3626;&#3634;&#3619;&#3660;: 9:00-19:00</span><span class="en">Mon-Sat: 9AM-7PM</span><span class="zh">&#21608;&#19968;&#33267;&#21608;&#20845;: 9:00-19:00</span></p><p><span class="th">&#3629;&#3634;&#3607;&#3636;&#3605;&#3618;&#3660;: 9:00-12:00, 17:00-19:00</span><span class="en">Sun: 9AM-12PM, 5-7PM</span><span class="zh">&#21608;&#26085;: 9:00-12:00, 17:00-19:00</span></p></div>
+    <div class="ci"><h3>&#128205; <span class="th">&#3607;&#3637;&#3656;&#3629;&#3618;&#3641;&#3656;</span><span class="en">Address</span><span class="zh">&#22320;&#22336;</span></h3><p>250/17 Chiang Mai-Lampang Superhighway</p><p>Mueang, Chiang Mai 50300</p></div>
+  </div>
+  <div style="text-align:center;"><a href="contact.html" class="btn-p"><span class="th">&#3604;&#3641;&#3649;&#3612;&#3609;&#3607;&#3637;&#3656;&#3649;&#3621;&#3632;&#3609;&#3633;&#3604;&#3627;&#3617;&#3634;&#3618;</span><span class="en">Get Directions &amp; Book</span><span class="zh">&#33719;&#21462;&#36335;&#32447;&#24182;&#39044;&#32422;</span></a></div>
+</section>
+<footer class="footer">
+  <div class="fgrid">
+    <div><h3>Chotana Veterinary Hospital</h3><p><span class="th">30+ &#3611;&#3637;&#3649;&#3627;&#3656;&#3591;&#3585;&#3634;&#3619;&#3604;&#3641;&#3649;&#3621;&#3626;&#3633;&#3605;&#3623;&#3660;&#3648;&#3621;&#3637;&#3657;&#3618;&#3591;&#3651;&#3609;&#3648;&#3594;&#3637;&#3618;&#3591;&#3651;&#3627;&#3617;&#3656;</span><span class="en">30+ years of advanced veterinary care in Chiang Mai</span><span class="zh">&#22312;&#28165;&#36855;&#25552;&#20379;30&#22810;&#24180;&#30340;&#39640;&#32423;&#20083;&#21307;&#25252;&#29702;</span></p></div>
+    <div><h3><span class="th">&#3621;&#3636;&#3591;&#3585;&#3660;&#3604;&#3656;&#3623;&#3609;</span><span class="en">Quick Links</span><span class="zh">&#24555;&#36895;&#38142;&#25509;</span></h3><ul><li><a href="services.html"><span class="th">&#3610;&#3619;&#3636;&#3585;&#3634;&#3619;</span><span class="en">Services</span><span class="zh">&#26381;&#21153;</span></a></li><li><a href="about.html"><span class="th">&#3648;&#3585;&#3637;&#3656;&#3618;&#3623;&#3585;&#3633;&#3610;&#3648;&#3619;&#3634;</span><span class="en">About Us</span><span class="zh">&#20851;&#20110;&#25105;&#20204;</span></a></li><li><a href="testimonials.html"><span class="th">&#3619;&#3637;&#3623;&#3636;&#3623;</span><span class="en">Testimonials</span><span class="zh">&#35780;&#20215;</span></a></li><li><a href="contact.html"><span class="th">&#3605;&#3636;&#3604;&#3605;&#3656;&#3629;</span><span class="en">Contact</span><span class="zh">&#32852;&#31995;</span></a></li></ul></div>
+    <div><h3><span class="th">&#3605;&#3636;&#3604;&#3605;&#3634;&#3617;&#3648;&#3619;&#3634;</span><span class="en">Follow Us</span><span class="zh">&#20851;&#27880;&#25105;&#20204;</span></h3><div class="slinks"><a href="https://www.facebook.com/chotanavet" target="_blank">&#128216; Facebook</a><a href="https://www.tiktok.com/@nuivetccah" target="_blank">&#127926; TikTok</a><a href="https://www.instagram.com/hosathitam" target="_blank">&#128248; Instagram</a><a href="https://www.youtube.com/@Chotanavet" target="_blank">&#9654;&#65039; YouTube</a><a href="https://line.me/ti/p/Chotanavet@fup17460" target="_blank">&#128172; LINE</a></div></div>
+  </div>
+  <div class="fb">&#169; 2026 Chiang Mai Chotana Veterinary Hospital. All rights reserved.</div>
+</footer>
+<script>
+function setLang(l){document.body.className='lang-'+l;['th','en','zh'].forEach(function(x){document.getElementById('btn-'+x).className=x===l?'active':'';});localStorage.setItem('lang',l);}
+var s=localStorage.getItem('lang');if(s)setLang(s);
+</script>
+</body>
+</html>
